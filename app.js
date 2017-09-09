@@ -1,16 +1,16 @@
-var path = require('path');
-var express = require('express');
-var app = express();
+const path = require('path');
+const express = require('express');
+const app = express();
 
-var server = app.listen(3000, '0.0.0.0', function () {
-    var host = 'localhost';
-    var port = server.address().port;
+const server = app.listen(3000, '0.0.0.0', function () {
+    const host = 'localhost';
+    const port = server.address().port;
     console.log('listening on http://'+host+':'+port+'/');
 });
 
-var io = require('socket.io').listen(server);
+const io = require('socket.io').listen(server);
 
-var htmlPath = path.join(__dirname, '/public');
+const htmlPath = path.join(__dirname, '/public');
 
 app.use(express.static(htmlPath));
 
