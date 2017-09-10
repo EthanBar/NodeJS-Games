@@ -11,5 +11,8 @@
   "dependencies": {
     "express": "^4.15.4",
     "socket.io": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint-config-p5js": "^1.0.1"
   }
 }

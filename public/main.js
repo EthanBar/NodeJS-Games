@@ -1,5 +1,5 @@
 const socket = io.connect(window.location.host);
-let newButton;
+let join, create;
 
 let newPress = true;
 
@@ -14,18 +14,17 @@ function setup() {
     socket.on("Start_Chat",function(){
 
     });
-    newButton = new Button("Help me", 100, 40, 100, 100);
+    create = new Button("Create Room", 200, 40, width/2 - 100, height/2, function () {
+        alert("");
+    });
+    join = new Button("Join Room", 200, 40, width/2 + 100, height/2, function () {
+        alert("");
+    });
 }
 
 function draw() {
-    // strokeWeight(1);
-    // if (mouseIsPressed) {
-    //     fill(0);
-    // } else {
-    //     fill(255);
-    // }
-    // ellipse(mouseX, mouseY, 80, 80);
-    newButton.update();
+    join.tick();
+    create.tick();
 }
 
 function Button(label, width, height, x, y, onClick) {
@@ -34,23 +33,24 @@ function Button(label, width, height, x, y, onClick) {
     this.height = height;
     this.x = x;
     this.y = y;
+    this.onClick = onClick;
 
-    this.update = function () {
+    this.tick = function () {
         strokeWeight(3);
         line(this.x - this.width/2, this.y - this.height/2, this.x + this.width/2, this.y - this.height/2);
         line(this.x + this.width/2, this.y - this.height/2, this.x + this.width/2, this.y + this.height/2);
         line(this.x + this.width/2, this.y + this.height/2, this.x - this.width/2, this.y + this.height/2);
         line(this.x - this.width/2, this.y + this.height/2, this.x - this.width/2, this.y - this.height/2);
 
+        
         textSize(30);
         textAlign(CENTER, CENTER);
         color(0, 0, 0);
         text(this.label, this.x, this.y);
-
-        if (mouseIsPressed && (mouseX > this.x - width/2 && mouseX < this.x + width/2)
-            && (mouseY > this.x - height/2 && mouseY < this.x + height/2) && newPress) {
+        if (mouseIsPressed && (mouseX > this.x - this.width/2 && mouseX < this.x + this.width/2)
+            && (mouseY > this.y - this.height/2 && mouseY < this.y + this.height/2) && newPress) {
             newPress = false;
-            alert("yee");
+            this.onClick();
         }
     };
 }
