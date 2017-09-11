@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a983268-5bf9-4e86-b9aa-b5e61ae494c1" name="Default" comment="">
+    <list default="true" id="1a983268-5bf9-4e86-b9aa-b5e61ae494c1" name="Default" comment="added heroku log">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/procfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/main.js" afterPath="$PROJECT_DIR$/public/main.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,11 +19,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="68" column="40" lean-forward="true" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
+            <state relative-caret-position="135">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -39,7 +39,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1125">
@@ -102,8 +102,9 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/public/main.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/procfile" />
       </list>
     </option>
   </component>
@@ -290,7 +291,7 @@
       <workItem from="1504895208028" duration="6672000" />
       <workItem from="1505064426380" duration="1913000" />
       <workItem from="1505069525766" duration="870000" />
-      <workItem from="1505151278113" duration="1430000" />
+      <workItem from="1505151278113" duration="1590000" />
     </task>
     <task id="LOCAL-00001" summary="Some ECMA2016 updates and .gitignore">
       <created>1504930365647</created>
@@ -299,11 +300,18 @@
       <option name="project" value="LOCAL" />
       <updated>1504930365647</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Working lobby and rooms">
+      <created>1505153955995</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1505153955995</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14948000" />
+    <option name="totallyTimeSpent" value="15108000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1676" height="1027" extended-state="6" />
@@ -335,7 +343,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Some ECMA2016 updates and .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some ECMA2016 updates and .gitignore" />
+    <MESSAGE value="Working lobby and rooms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working lobby and rooms" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -500,14 +509,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="5" lean-forward="false" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.eslintrc.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -523,18 +524,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="68" column="40" lean-forward="true" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1125">
           <caret line="75" column="56" lean-forward="false" selection-start-line="75" selection-start-column="56" selection-end-line="75" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="5" lean-forward="false" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>

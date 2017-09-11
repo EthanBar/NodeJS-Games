@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const app = express();
 
-const server = app.listen(3000, '0.0.0.0', function () {
+const server = app.listen(3000 || process.env.PORT, function () {
     const host = 'localhost';
     const port = server.address().port;
     console.log('listening on http://'+host+':'+port+'/');
