@@ -1,5 +1,5 @@
 const socket = io.connect(window.location.host);
-let join, create, myName;
+let join, create, myName, start;
 
 let newPress = true;
 
@@ -11,16 +11,14 @@ const scenes = {
 
 let currentScene = scenes.MAIN;
 
-let code;
+let code, isOwner;
 
 let players = [];
 
 function setup() {
-    console.log("ye");
     createCanvas(windowWidth,windowHeight);
     socket.on('connect', function(){
         // Setup here
-        console.log("YEEE");
     });
 
     socket.on("Start_Chat",function(){
@@ -31,6 +29,11 @@ function setup() {
         socket.emit("create-room", myName);
         socket.on("confirm-room", function (msg) {
             code = msg;
+            start = new Button("Start Game", 200, 40, width/2, height/8 * 7, function () {
+                socket.emit("start", "yeah");
+                currentScene = scenes.GAME;
+            });
+            isOwner = true;
             currentScene = scenes.ROOM;
             let roomSocket = io('/' + code);
             roomSocket.on("username", function (msg) {
@@ -50,6 +53,7 @@ function setup() {
                 });
                 myName = prompt("Room found, what's your name?");
                 socket.emit("username", myName);
+                isOwner = false;
                 currentScene = scenes.ROOM;
             } else {
                 alert("Room not found")
@@ -67,6 +71,7 @@ function draw() {
         textSize(40);
         textAlign(CENTER, CENTER);
         color(0, 0, 0);
+        fill(0, 0, 0);
         text("Join with code: " + code, width/2, height/6);
         text("Connected Users: ", width/2, height/6 + 80);
 
@@ -75,6 +80,17 @@ function draw() {
         for (let index = 0; index < players.length; ++index) {
             text(players[index], width/2, height/6 + 120 + (index * height/20));
         }
+        
+        if (isOwner) {
+            if (players.length > 3) {
+                start.grayed = false;
+            } else {
+                start.grayed = true;
+            }
+            start.tick();
+        }
+    } else if (currentScene = scenes.GAME) {
+        drawGame();
     }
 }
 
@@ -85,17 +101,24 @@ function Button(label, width, height, x, y, onClick) {
     this.x = x;
     this.y = y;
     this.onClick = onClick;
+    this.grayed = false;
 
     this.tick = function () {
+        fill(0, 0, 0);
+        textSize(30);
         strokeWeight(3);
         line(this.x - this.width/2, this.y - this.height/2, this.x + this.width/2, this.y - this.height/2);
         line(this.x + this.width/2, this.y - this.height/2, this.x + this.width/2, this.y + this.height/2);
         line(this.x + this.width/2, this.y + this.height/2, this.x - this.width/2, this.y + this.height/2);
         line(this.x - this.width/2, this.y + this.height/2, this.x - this.width/2, this.y - this.height/2);
-
-        textSize(30);
         textAlign(CENTER, CENTER);
-        color(0, 0, 0);
+
+        if (this.grayed) {
+            fill(150, 150, 150);
+        } else {
+            fill(0, 0, 0);
+        }
+        strokeWeight(0);
         text(this.label, this.x, this.y);
         if (mouseIsPressed && (mouseX > this.x - this.width/2 && mouseX < this.x + this.width/2)
             && (mouseY > this.y - this.height/2 && mouseY < this.y + this.height/2) && newPress) {
@@ -108,3 +131,8 @@ function Button(label, width, height, x, y, onClick) {
 function mouseReleased() {
     newPress = true;
 }
+
+
+const items = ['a starry sky', 'a large panda', 'the empire state building'];
+// const thing = things[Math.floor(Math.random()*things.length)];
+

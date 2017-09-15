@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const app = express();
 
-const server = app.listen(process.env.PORT, function () {
+const server = app.listen(3000, function () {
     const host = 'localhost';
     const port = server.address().port;
     console.log('listening on http://'+host+':'+port+'/');
@@ -36,6 +36,9 @@ io.on('connection', function(socket){
             room.users.push(username);
             console.log(username + "created room: " + room.code);
             room.socketRoom.emit("username", room.users);
+            socket.on("start", function (msg) {
+                room.socketRoom.emit("game-start", )
+            })
         });
 
         socket.emit("confirm-room", room.code);
